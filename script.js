@@ -15,7 +15,7 @@ function main() {
   const near = 0.1;
   const far = 100;
   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-  camera.position.set(0, 10, 20);
+  camera.position.set(-5, 10, 10);
   const scene = new THREE.Scene();
 
   // var camera = new THREE.PerspectiveCamera(70, 
@@ -109,7 +109,7 @@ function main() {
       const boxCenter = box.getCenter(new THREE.Vector3());
 
       // set the camera to frame the box
-      frameArea(boxSize * 0.5, boxSize, boxCenter, camera);
+      frameArea(boxSize * 0.7, boxSize, boxCenter, camera);
 
       // update the Trackball controls to handle the new size
       controls.maxDistance = boxSize * 10;
