@@ -30,7 +30,9 @@ function main() {
   controls.update();
 
   scene.background = new THREE.Color('#ED9121');
-
+  // background-color: #ff4e00;
+  // background-image: linear-gradient(315deg, #ff4e00 0%, #ec9f05 74%);
+  
   {
     const planeSize = 40;
 

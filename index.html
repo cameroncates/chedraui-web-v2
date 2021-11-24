@@ -34,7 +34,10 @@
     --font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     }    
     body {
-        background-color: rgba(0, 0, 0, 0.95);
+        background-color: #0d0d0d;
+    }
+    .bg-dark {
+        background-color: #0d0d0d !important;
     }
     canvas {
         box-shadow: -9px 5px 84px -15px rgba(237,145,33,0.81);
@@ -44,7 +47,7 @@
     }
     /* Slider */
     .carousel-item {
-    height: 30vh;
+    height: 50vh;
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
@@ -67,9 +70,15 @@
     } 
     .border-radius-0 {
         border-radius: 0px !important;
-    }   
+    } 
+    .hover-effect img {
+        transition: all 0.3s !important;
+    }  
     .hover-effect:hover {
         background-color: rgba(255, 255, 255, 0.05) !important;
+    } 
+    .hover-effect:hover img {
+        transform: translateY(-75%) !important;
     }
 </style>
 <script>
@@ -80,7 +89,13 @@
 <body>
     
     <!-- Slider -->
-    <section class="slider-section">
+    <section class="slider-section position-relative">
+        <div class="w-100 text-center position-relative w-100" style="height: 99px; background-color: black;">
+            <div class="w-100 position-absolute" style="z-index: 3000;">
+                <video src="./ballantines (1)/logo_changuito_animado.mp4" loop autoplay width="175px"></video>
+            </div>
+    
+        </div>
         <div id="carousel" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">
@@ -91,14 +106,16 @@
 
             <!-- Carousel Content -->
             <div class="carousel-inner" role="listbox">
-                <div class="carousel-item active" style="background-image: url('https://cdn.pixabay.com/photo/2020/04/03/15/27/flower-meadow-4999277_960_720.jpg');">
+                <div class="carousel-item active">
+                    <video src="./ballantines (1)/Untitled.mp4" loop autoplay muted class="w-100"></video>
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Amazon Forest</h3>
                         <p>Cool description for Amazon Forest.</p>
                     </div>
                 </div> <!-- End of Carousel Item -->
 
-                <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg');">
+                <div class="carousel-item">
+                    <video src="./ballantines (1)/Untitled.mp4" loop autoplay muted class="w-100"></video>
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Bridge Picture</h3>
                         <p>Awesome description for bridge.</p>
@@ -130,28 +147,45 @@
         <canvas 
             onclick="toggleBubbles()" id="c" width="500px" height="300px" class="position-relative" style="z-index: 3000;"></canvas>
 
-        <p class="px-4 py-3 draggable button -blue position-absolute d-inline-block font-weight-bold text-white transition" style="z-index: 0; left: 183px; top: 184px;">Whiskey 1</p>
-        <p class="px-4 py-3 draggable button -blue position-absolute d-inline-block font-weight-bold text-white transition" style="z-index: 0; left: 183px; top: 184px;">Whiskey 2</p>
-        <p class="px-4 py-3 draggable button -blue position-absolute d-inline-block font-weight-bold text-white transition" style="z-index: 0; left: 183px; top: 184px;">Whiskey 3</p>
-        <p class="px-4 py-3 draggable button -blue position-absolute d-inline-block font-weight-bold text-white transition" style="z-index: 0; left: 183px; top: 184px;">Whiskey 4</p>
-        <p class="px-4 py-3 draggable button -blue position-absolute d-inline-block font-weight-bold text-white transition" style="z-index: 0; left: 183px; top: 184px;">Whiskey 5</p>
+        <p class="draggable position-absolute d-inline-block font-weight-bold transition" style="z-index: 0; left: 183px; top: 184px;">
+            <img src="ballantines (1)/Dribbble-1.png" width="90px" alt="">
+        </p>
+        <p class="draggable position-absolute d-inline-block font-weight-bold transition" style="z-index: 0; left: 183px; top: 184px;">
+            <img src="ballantines (1)/Pinterest-1.png" width="90px" alt="">
+        </p>
+        <p class="draggable position-absolute d-inline-block font-weight-bold transition" style="z-index: 0; left: 183px; top: 184px;">
+            <img src="ballantines (1)/Reddit-1.png" width="90px" alt="">
+        </p>
+        <p class="draggable position-absolute d-inline-block font-weight-bold transition" style="z-index: 0; left: 183px; top: 184px;">
+            <img src="ballantines (1)/Soundcloud-1.png" width="90px" alt="">
+        </p>
+        <p class="draggable position-absolute d-inline-block font-weight-bold transition" style="z-index: 0; left: 183px; top: 184px;">
+            <img src="ballantines (1)/Youtube-1.png" width="90px" alt="">
+        </p>
     </div>
     <br><br>
     <br><br>
 
-
-    <div class="pt-4 position-fixed w-100" style="bottom: 0px; z-index: 7000;">
-        <div class="row mx-0" style="background-color: rgba(255, 255, 255, 0.05); border-radius: 100px 100px 0px 0px;">
-            <div class="col-4 text-center px-0" style="border-right: 1px solid rgba(255, 255, 255, 0.075);">
-                <button class="btn btn-block hover-effect py-3 bg-transparent text-white mdi mdi-share mdi-flip-h mdi-48px" style="border-radius: 100px 0px 0px 0px;"></button>
+    <div class="container position-relative">
+        <div class="pt-4 w-100" style="bottom: 0px; left: 0px; z-index: 7000;">
+            <div class="row mx-0" style="background-color: rgba(255, 255, 255, 0.05); border-radius: 100px 100px 0px 0px;">
+                <div class="col-4 text-center px-0" style="border-right: 1px solid rgba(255, 255, 255, 0.075);">
+                    <button class="btn btn-block hover-effect py-0 text-white bg-transparent" style="border-radius: 100px 0px 0px 0px;">
+                        <img src="./ballantines (1)/Outlook-1.png" class="bg-dark p-3" style="border-radius: 100px; transform: translateY(-50%);" width="120px" alt="">
+                    </button>
+                </div>
+                <div class="col-4 text-center px-0" style="border-right: 1px solid rgba(255, 255, 255, 0.075);">
+                    <button class="btn btn-block hover-effect py-0 text-white bg-transparent">
+                        <img src="./ballantines (1)/Dropbox-1.png" class="bg-dark p-3" style="border-radius: 100px; transform: translateY(-50%);" width="120px" alt="">
+                    </button>
+                </div>
+                <div class="col-4 text-center px-0">
+                    <button class="btn btn-block hover-effect py-0 text-white bg-transparent" style="border-radius: 0px 100px 0px 0px;">
+                        <img src="./ballantines (1)/Messenger-1.png" class="bg-dark p-3" style="border-radius: 100px; transform: translateY(-50%);" width="120px" alt="">
+                    </button>
+                </div>
             </div>
-            <div class="col-4 text-center px-0" style="border-right: 1px solid rgba(255, 255, 255, 0.075);">
-                <button class="btn btn-block border-radius-0 hover-effect py-3  bg-transparent text-white mdi mdi-home-variant mdi-48px"></button>
-            </div>
-            <div class="col-4 text-center px-0">
-                <button class="btn btn-block hover-effect py-3  bg-transparent text-white mdi mdi-email-open-multiple mdi-48px" style="border-radius: 0px 100px 0px 0px;"></button>
-            </div>
-        </div>
+        </div>    
     </div>
 
 
