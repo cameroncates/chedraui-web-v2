@@ -1,0 +1,197 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <link rel="stylesheet" href="https://cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">    
+    <link href="https://fonts.googleapis.com/css2?family=Marck+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css">
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <title>Document</title>
+</head>
+<style>
+    :root {
+    --color-dark: #161616;
+    --color-ocean: #416dea;
+    --color-grass: #3dd28d;
+    --color-snow: #FFFFFF;
+    --color-salmon: #F32C52;
+    --color-sun: #feee7d;
+    --color-alge: #7999a9;
+    --color-flower: #353866;
+    --color-smoke: #e4e4e4;
+    --borderRadius: 12px;
+    --font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    }    
+    body {
+        background-color: rgba(0, 0, 0, 0.95);
+    }
+    canvas {
+        box-shadow: -9px 5px 84px -15px rgba(237,145,33,0.81);
+        -webkit-box-shadow: -9px 5px 84px -15px rgba(237,145,33,0.81);
+        -moz-box-shadow: -9px 5px 84px -15px rgba(237,145,33,0.81);  
+        border-radius: 32px;    
+    }
+    /* Slider */
+    .carousel-item {
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    }    
+    .transition {
+        transition: 0.5s ease-out !important;
+    }
+    .button {
+        border-radius: var(--borderRadius);
+        font-size: 13px;
+        font-weight: 500;        
+        color: #fff;
+        /* box-shadow: 2px 5px 10px var(--color-smoke); */
+    }
+    .button.-blue {
+        color: var(--color-snow);
+        /* background: var(--color-ocean); */
+        background: rgb(173,108,30);
+        background: linear-gradient(278deg, rgba(173,108,30,1) 0%, rgba(237,145,33,1) 0%, rgba(131,91,44,1) 0%, rgba(237,145,34,1) 100%);                
+    } 
+    .border-radius-0 {
+        border-radius: 0px !important;
+    }   
+    .hover-effect:hover {
+        background-color: rgba(255, 255, 255, 0.05) !important;
+    }
+</style>
+<script>
+    $(document).ready(function() {
+        // $(".draggable").draggable()
+    })
+</script>
+<body>
+    
+    <!-- Slider -->
+    <section class="slider-section">
+        <div id="carousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel" data-slide-to="1"></li>
+                <li data-target="#carousel" data-slide-to="2"></li>
+            </ol> <!-- End of Indicators -->
+
+            <!-- Carousel Content -->
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active" style="background-image: url('https://cdn.pixabay.com/photo/2020/04/03/15/27/flower-meadow-4999277_960_720.jpg');">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Amazon Forest</h3>
+                        <p>Cool description for Amazon Forest.</p>
+                    </div>
+                </div> <!-- End of Carousel Item -->
+
+                <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_960_720.jpg');">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Bridge Picture</h3>
+                        <p>Awesome description for bridge.</p>
+                    </div>
+                </div> <!-- End of Carousel Item -->
+
+                <div class="carousel-item" style="background-image: url('https://cdn.pixabay.com/photo/2015/04/23/21/59/tree-736875_960_720.jpg');">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Flowers & Grass</h3>
+                        <p>Beauty of Flowers & Grass.</p>
+                    </div>
+                </div> <!-- End of Carousel Item -->
+            </div> <!-- End of Carousel Content -->
+
+            <!-- Previous & Next -->
+            <a href="#carousel" class="carousel-control-prev" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only"></span>
+            </a>
+            <a href="#carousel" class="carousel-control-next" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only"></span>
+            </a>
+        </div> <!-- End of Carousel -->
+    </section> <!-- End of Slider -->
+    <br><br><br><br>
+    <div class="container py-5 my-5 position-relative px-0">
+
+        <canvas 
+            onclick="toggleBubbles()" id="c" width="500px" height="300px" class="position-relative" style="z-index: 3000;"></canvas>
+
+        <p class="px-4 py-3 draggable button -blue position-absolute d-inline-block font-weight-bold text-white transition" style="z-index: 0; left: 183px; top: 184px;">Whiskey 1</p>
+        <p class="px-4 py-3 draggable button -blue position-absolute d-inline-block font-weight-bold text-white transition" style="z-index: 0; left: 183px; top: 184px;">Whiskey 2</p>
+        <p class="px-4 py-3 draggable button -blue position-absolute d-inline-block font-weight-bold text-white transition" style="z-index: 0; left: 183px; top: 184px;">Whiskey 3</p>
+        <p class="px-4 py-3 draggable button -blue position-absolute d-inline-block font-weight-bold text-white transition" style="z-index: 0; left: 183px; top: 184px;">Whiskey 4</p>
+        <p class="px-4 py-3 draggable button -blue position-absolute d-inline-block font-weight-bold text-white transition" style="z-index: 0; left: 183px; top: 184px;">Whiskey 5</p>
+    </div>
+    <br><br><br><br><br><br>
+
+
+    <div class="container pt-4">
+        <div class="row mx-0" style="background-color: rgba(255, 255, 255, 0.05); border-radius: 100px 100px 0px 0px;">
+            <div class="col-4 text-center px-0" style="border-right: 1px solid rgba(255, 255, 255, 0.075);">
+                <button class="btn btn-block hover-effect py-3 bg-transparent text-white mdi mdi-share mdi-flip-h mdi-48px" style="border-radius: 100px 0px 0px 0px;"></button>
+            </div>
+            <div class="col-4 text-center px-0" style="border-right: 1px solid rgba(255, 255, 255, 0.075);">
+                <button class="btn btn-block border-radius-0 hover-effect py-3  bg-transparent text-white mdi mdi-home-variant mdi-48px"></button>
+            </div>
+            <div class="col-4 text-center px-0">
+                <button class="btn btn-block hover-effect py-3  bg-transparent text-white mdi mdi-email-open-multiple mdi-48px" style="border-radius: 0px 100px 0px 0px;"></button>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type="module" src="/script.js"></script>
+
+    <script>
+        let active = false,
+            pos1 = [
+                { top: "376.969px", left: "500.969px" },
+                { top: "278.969px", left: "593.969px" },
+                { top: "171.969px", left: "633.938px" },
+                { top: "63.9375px", left: "597.969px" },
+                { top: "-29px", left: "504.969px" },
+            ],
+            pos2 = [
+                { top: "183px", left: "184px" },
+                { top: "183px", left: "184px" },
+                { top: "183px", left: "184px" },
+                { top: "183px", left: "184px" },
+                { top: "183px", left: "184px" },
+            ]
+        function toggleBubbles() {
+            active = !active
+
+            let p = document.getElementsByClassName("draggable"),
+                pos = []
+            console.log(p.length, 'len')
+            if (active) {
+                pos = pos1
+            } else {
+                pos = pos2
+            }
+            for (let i=0; i<p.length; i++) {
+                $(p[i]).css({
+                    top: pos[i].top,
+                    left: pos[i].left
+                })
+            }
+
+        }
+    </script>
+</body>
+</html>
