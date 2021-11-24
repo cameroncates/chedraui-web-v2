@@ -14,14 +14,14 @@ function main() {
   const aspect = 2;  // the canvas default
   const near = 0.1;
   const far = 100;
-//   const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
-//   camera.position.set(0, 10, 20);
+  const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+  camera.position.set(0, 10, 20);
   const scene = new THREE.Scene();
 
-  var camera = new THREE.PerspectiveCamera(70, 
-  window.innerWidth/window.innerHeight, 0.1, 1000 ); // Specify camera type like this
-  camera.position.set(0,2.5,2.5); // Set position like this
-  camera.lookAt(new THREE.Vector3(0,0,0)); // Set look at coordinate like this
+  // var camera = new THREE.PerspectiveCamera(70, 
+  // window.innerWidth/window.innerHeight, 0.1, 1000 ); // Specify camera type like this
+  // camera.position.set(0,2.5,2.5); // Set position like this
+  // camera.lookAt(new THREE.Vector3(0,0,0)); // Set look at coordinate like this
 
 
 
